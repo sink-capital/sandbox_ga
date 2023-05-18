@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.main-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.first-view {
+    background: #f2f2f2;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.conversion-button-container {
+    margin-top: 20px;
+}
+
+.conversion-button {
+    display: inline-block;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.conversion-button:hover {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
