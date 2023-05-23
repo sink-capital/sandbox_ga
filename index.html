@@ -23,6 +23,10 @@
       console.log(field)
       client_id = field;
     })
+    function clickFrontButton() {
+        console.log("client_id:"+client_id+"session_id:"+session_id);
+
+    }
 </script>  
 <!-- End Google Tag Manager -->
     <meta charset="utf-8">
@@ -38,7 +42,7 @@
             <h2>あなたの活力を引き出します！</h2>
             <p>私たちのエナジードリンクは、一日を通じて持続するエネルギーを提供します。</p>
             <div class="conversion-button-container">
-                <button class="conversion-button" onclick='console.log("client_id:"+client_id+"session_id:"+session_id)'>申し込み</button>
+                <button class="conversion-button" onclick=clickFrontButton() value="front_button">フロント申し込み</button>
             </div>
         </section>
     </div>
