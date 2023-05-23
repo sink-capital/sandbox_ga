@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function ga4(){dataLayer.push(arguments);}
+</script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -8,6 +12,16 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-N9BGZXG');
 </script>
+<script>
+    ga4("get", "G-QY86BV694Z", "session_id", function(field){ 
+      console.log(field)
+      window.dataLayer.push({ event: "session_id_ready", session_id: field });
+    })
+    ga4("get", "G-QY86BV694Z", "client_id", function(field){ 
+      console.log(field)
+      window.dataLayer.push({ event: "client_id_ready", client_id: field });
+    })
+</script>  
 <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <title>エナジードリンク特売！</title>
