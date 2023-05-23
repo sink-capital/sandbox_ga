@@ -1,9 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QY86BV694Z"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function ga4(){dataLayer.push(arguments);}
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QY86BV694Z');
 </script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -15,17 +20,17 @@
 <script>
     let client_id;
     let session_id;
-    ga4("get", "G-QY86BV694Z", "session_id", function(field){ 
+    gtag("get", "G-QY86BV694Z", "session_id", function(field){ 
       console.log(field)
       session_id = field;
     })
-    ga4("get", "G-QY86BV694Z", "client_id", function(field){ 
+    gtag("get", "G-QY86BV694Z", "client_id", function(field){ 
       console.log(field)
       client_id = field;
     })
     function clickFrontButton() {
         console.log("client_id:"+client_id+"session_id:"+session_id);
-        ga4('event', 'click', {
+        gtag('event', 'click', {
             'event_category': 'front_button',
             'event_label': 'click_front_button',
             'client_id': client_id,
