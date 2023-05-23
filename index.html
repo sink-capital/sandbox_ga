@@ -25,7 +25,7 @@
     })
     function clickFrontButton() {
         console.log("client_id:"+client_id+"session_id:"+session_id);
-        ga4('event', 'click', {
+        gtag('event', 'click', {
             'event_category': 'front_button',
             'event_label': 'click_front_button',
             'client_id': client_id,
