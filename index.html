@@ -13,13 +13,15 @@
     })(window,document,'script','dataLayer','GTM-N9BGZXG');
 </script>
 <script>
+    let client_id;
+    let session_id;
     ga4("get", "G-QY86BV694Z", "session_id", function(field){ 
       console.log(field)
-      window.dataLayer.push({ event: "session_id_ready", session_id: field });
+      session_id = field;
     })
     ga4("get", "G-QY86BV694Z", "client_id", function(field){ 
       console.log(field)
-      window.dataLayer.push({ event: "client_id_ready", client_id: field });
+      client_id = field;
     })
 </script>  
 <!-- End Google Tag Manager -->
@@ -36,7 +38,7 @@
             <h2>あなたの活力を引き出します！</h2>
             <p>私たちのエナジードリンクは、一日を通じて持続するエネルギーを提供します。</p>
             <div class="conversion-button-container">
-                <button class="conversion-button">申し込み</button>
+                <button class="conversion-button" onclick='console.log("client_id:"+client_id+"session_id:"+session_id)'>申し込み</button>
             </div>
         </section>
     </div>
