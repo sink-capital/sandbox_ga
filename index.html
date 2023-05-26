@@ -7,7 +7,6 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-QY86BV694Z');
 </script>
 <!-- Google Tag Manager -->
@@ -39,7 +38,7 @@
     }
     function clickBackEndButton() {
         console.log("client_id:"+client_id+"session_id:"+session_id);
-        var url = 'https://script.google.com/macros/s/AKfycbwo_jRnRVaUL8lER9dVEc37p9qv4rekcR7jQR2q9R7szh6UOVso4D0jnCjlTOTV1dcb/exec'; // あなたのWebアプリケーションのURLを指定
+        var url = 'https://script.google.com/macros/s/AKfycbyQNl-phiSyP127kki6TryR9K_6K-534NTRF7GpHdDkSPtx-6aDh3Y2iFWTl7m86YI/exec'; // あなたのWebアプリケーションのURLを指定
 
         var data = {
         'client_id': client_id,
@@ -81,7 +80,7 @@
             <p>私たちのエナジードリンクは、一日を通じて持続するエネルギーを提供します。</p>
             <div class="conversion-button-container">
                 <button class="conversion-button" onclick=clickFrontButton() value="front_button">フロントから申し込み</button>
-                <button class="conversion-button" onclick=clickBackEndButton() value="front_button">サーバーから申し込み</button>
+                <button class="conversion-button" onclick=clickBackEndButton() value="server_button">サーバーから申し込み</button>
             </div>
         </section>
     </div>
