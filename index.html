@@ -22,11 +22,11 @@
         let session_id;
         //gtag.jsを使用して、client_idとsession_idを取得する
         gtag("get", "G-QY86BV694Z", "session_id", function(field){ 
-        console.log(field)
+        // console.log(field)
         session_id = field;
         })
         gtag("get", "G-QY86BV694Z", "client_id", function(field){ 
-        console.log(field)
+        // console.log(field)
         client_id = field;
         })
         //フロントからのコンバージョンとして、イベントを送信する
