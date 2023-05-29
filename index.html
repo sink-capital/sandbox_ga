@@ -1,67 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QY86BV694Z"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QY86BV694Z');
-</script>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-N9BGZXG');
-</script>
-<script>
-    let client_id;
-    let session_id;
-    gtag("get", "G-QY86BV694Z", "session_id", function(field){ 
-      console.log(field)
-      session_id = field;
-    })
-    gtag("get", "G-QY86BV694Z", "client_id", function(field){ 
-      console.log(field)
-      client_id = field;
-    })
-    function clickFrontButton() {
-        console.log("client_id:"+client_id+"session_id:"+session_id);
-        gtag('event', 'click', {
-            'event_category': 'click_button',
-            'event_label': 'click_front_button',
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QY86BV694Z"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QY86BV694Z');
+    </script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-N9BGZXG');
+    </script>
+    <!-- End Google Tag Manager -->
+    <script>
+        let client_id;
+        let session_id;
+        //gtag.jsを使用して、client_idとsession_idを取得する
+        gtag("get", "G-QY86BV694Z", "session_id", function(field){ 
+        console.log(field)
+        session_id = field;
+        })
+        gtag("get", "G-QY86BV694Z", "client_id", function(field){ 
+        console.log(field)
+        client_id = field;
+        })
+        //フロントからのコンバージョンとして、イベントを送信する
+        function clickFrontButton() {
+            // console.log("client_id:"+client_id+"session_id:"+session_id);
+            gtag('event', 'click', {
+                'event_category': 'click_button',
+                'event_label': 'click_front_button',
+                'client_id': client_id,
+                'session_id': session_id
+            });
+        }
+        //サーバー経由のコンバージョンとして、イベントをサーバーに送信する
+        function clickBackEndButton() {
+            // console.log("client_id:"+client_id+"session_id:"+session_id);
+            var url = 'https://script.google.com/macros/s/AKfycbyQNl-phiSyP127kki6TryR9K_6K-534NTRF7GpHdDkSPtx-6aDh3Y2iFWTl7m86YI/exec'; // サーバAPIのURL
+
+            var data = {
             'client_id': client_id,
             'session_id': session_id
-        });
-    }
-    function clickBackEndButton() {
-        console.log("client_id:"+client_id+"session_id:"+session_id);
-        var url = 'https://script.google.com/macros/s/AKfycbyQNl-phiSyP127kki6TryR9K_6K-534NTRF7GpHdDkSPtx-6aDh3Y2iFWTl7m86YI/exec'; // あなたのWebアプリケーションのURLを指定
+            };
 
-        var data = {
-        'client_id': client_id,
-        'session_id': session_id
-        };
-
-        fetch(url, {
-            method: 'POST', 
-            mode: 'no-cors', // no-cors mode is used as GAS does not return Access-Control-Allow-Origin header
-            cache: 'no-cache', 
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(data) // this will form-encode your data
-            })
-            .then(response => response.text())
-            .then(data => console.log(data))
-            .catch((error) => {
-            console.error('Error:', error);
-        });
-    }
-</script>  
-<!-- End Google Tag Manager -->
+            fetch(url, {
+                method: 'POST', 
+                mode: 'no-cors', // no-cors mode is used as GAS does not return Access-Control-Allow-Origin header
+                cache: 'no-cache', 
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(data) 
+                })
+                .then(response => response.text())
+                .then(data => console.log(data))
+                .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>  
     <meta charset="utf-8">
     <title>エナジードリンク特売！</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
