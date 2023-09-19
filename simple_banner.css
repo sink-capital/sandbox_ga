@@ -8,14 +8,14 @@ button {
 }
 button:not(:disabled) { cursor: pointer }
 button * { cursor: inherit }
-.wrapper {
+.callBunner_Wrapper {
     position: relative;
     height: 100%;
     text-align: left;
     font-size: 12px;
     line-height: 1.66667;
 }
-.wrapper * {
+.callBunner_Wrapper * {
     box-sizing: border-box;
     font-size: 100%;
     line-height: inherit;
