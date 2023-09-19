@@ -68,6 +68,49 @@
     <script>
         function clickCallRequest() {
             console.log('Click request');
+            fetchToken();
+        }
+
+        function changeBanner() {
+            var requestDev = document.querySelector('.callRequest_Banner');
+            requestDev.classList.remove('active');
+            var responseDev = document.querySelector('.callResponse_Banner');
+            responseDev.classList.add('active');
+        }
+
+        function fetchToken() {
+            var path = 'https://ott.stg.ivry.jp/token?';
+            // var partner_client_id = 'p406116219';
+            var partner_visitor_id = '#{visitor_id}';
+            var partner_user_id = 'test_kose';
+
+            var params = {
+                partner_client_id: partner_client_id,
+                partner_visitor_id: partner_visitor_id,
+                partner_user_id: partner_user_id
+            };
+
+            var query = new URLSearchParams(params);
+
+            fetch(path + query)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (json) {
+                    console.log(json);
+                    var telNumber = json.ivry_phone_number.replace("+81", "0").replace(/^(0[56789]0)([0-9]{4})([0-9]{4})$/, "$1-$2-$3") || '電話番号の取得取得に失敗しました。';
+                    var idNumber = json.token || '0000';
+                    var telNumberDev = document.querySelector('.telNumber');
+                    telNumberDev.innerHTML = 'お問い合わせ窓口：<a href="tel:' + telNumber + '">' + telNumber + '</a>'
+                    var idNumberDev = document.querySelector('.idNumber_Value');
+                    idNumberDev.innerHTML = idNumber
+                    console.log('idNumber:' + idNumber);
+                    console.log('telNumber:' + telNumber);
+                    changeBanner();
+                })
+                .catch(function (error) {
+                    console.error('Error:', error);
+                });
         }
     </script>
     <script src="/banner.js"></script>
@@ -109,19 +152,18 @@
             </div>
         </div>
         <!-- call tracking -->
-        <div class="reception-Skin callResponse_Banner activ">
+        <div class="reception-Skin callResponse_Banner">
             <div class="reception-Answer_Container">
                 <div ref="answer-item" class="reception-Answer_Item js-answer-item-call">
                     <div class="reception-Answer_TextOuter js-answer-text-outer">
                         <div class="reception-Answer_Call">
                             <p>下記に表示された4桁のお客様番号を音声ガイドに従いご入力ください。</p>
                             <strong class="telNumber">
-                                お問い合わせ窓口：
-                                <strong class="telNumber"><a href="tel:050-3198-9423">050-3198-9423</a></strong>
+                                お問い合わせ窓口：<a href="tel:050-3198-9423">050-3198-9423</a>
                             </strong>
                             <strong class="idNumber">
                                 お客様番号<br />
-                                <em>{{idNumber}}</em>
+                                <em class="idNumber_Value">{{idNumber}}</em>
                             </strong>
                         </div>
                         <p class="reception-Answer_Call-Notice">
