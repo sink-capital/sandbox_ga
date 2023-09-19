@@ -1,0 +1,217 @@
+/* ベース */
+figure { margin: 0 }
+button {
+    margin: 0;
+    width: auto;
+    height: auto;
+    font-family: inherit;
+}
+button:not(:disabled) { cursor: pointer }
+button * { cursor: inherit }
+.wrapper {
+    position: relative;
+    height: 100%;
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.66667;
+}
+.wrapper * {
+    box-sizing: border-box;
+    font-size: 100%;
+    line-height: inherit;
+}
+
+/* ラベル  */
+.label {
+    display: block;
+
+    border-radius: 4px;
+    border: solid 1px transparent;
+    padding: 8px 1em;
+    width: 100%;
+    background: #f0f1f1;
+    text-align: center;
+    font-size: 10px;
+}
+.label em {
+    font-style: normal;
+    font-weight: inherit;
+    font-size: 150%;
+    font-family: 'Noto Sans', sans-serif;
+    letter-spacing: .1em;
+}
+
+/* ボタン */
+.btn {
+    transition: .2s;
+    display: inline-block;
+    border-radius: 4px;
+    border: solid 1px transparent;
+    padding: 13px 16px;
+    background: #{style.colorMain};
+    color: #fff;
+    vertical-align: middle;
+    text-decoration: none;
+    text-align: center;
+    line-height: 1.25;
+
+    font-weight: 600;
+}
+.btn:not(:disabled):hover,
+.btn:not(:disabled):focus { opacity: .75 }
+.btn:disabled { opacity: .75 }
+.btn._size-sm {
+    padding: 8px 12px;
+    font-size: 10px;
+}
+.btn:not(:disabled)._shadowed {
+    box-shadow:
+        0 0 0 1px fade(#{style.colorMain}, 3%),
+        0 8px 16px -4px fade(#{style.colorMain}, 30%);
+    opacity: 1;
+}
+.btn:not(:disabled)._shadowed:hover,
+.btn:not(:disabled)._shadowed:focus {
+    box-shadow:
+        0 0 0 1px fade(#{style.colorMain}, 3%),
+        0 4px 8px -2px fade(#{style.colorMain}, 15%);
+    background: darken(#{style.colorMain}, 5%);
+}
+
+/* 閉じるボタン */
+.btn-close {
+    position: absolute;
+    z-index: 1;
+    border-radius: 4px;
+    transition: .25s;
+    right: 0;
+    bottom: 100%;
+
+    padding: 6px;
+    background: #{style.colorMain};
+    color: #fff;
+
+    font-size: 10px;
+    line-height: 1;
+
+    opacity: 0;
+}
+// hover 範囲の拡張
+.wrapper::before,
+.btn-close::before {
+    position: absolute;
+    top   : -12px;
+    right : -12px;
+    bottom: -12px;
+    left  : -12px;
+    border-radius: 12px;
+    // background: fade(blue, 40%); // for Test
+    content: "";
+}
+.wrapper:hover .btn-close {
+    opacity: 1;
+    margin-bottom: 8px;
+}
+.wrapper .btn-close:hover,
+.wrapper .btn-close:focus {
+    margin-bottom: 8px;
+    opacity: .5;
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+}
+.btn-close .icon {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* ボタンブロック */
+.button-block > * + * { margin-top: 10px }
+.button-block._fit-btn { display: inline-block }
+.button-block._fit-btn > * + * { margin-top: 8px }
+.button-block._fit-btn .btn { display: block }
+
+/* メディアカード */
+.card-media {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    box-shadow: 0 5px 16px rgba(0,0,0,.05), 0 8px 14px rgba(0,0,0,.08);
+    border-radius: 8px;
+    width: 320px;
+    max-width: 90vw;
+    max-height: 94.4vh;
+    overflow-y: auto;
+    background: #{style.colorBg} no-repeat 50%;
+    background-size: cover;
+    color: #{style.colorText};
+    flex-flow: wrap;
+}
+
+.card-media .card-body { padding: 16px 20px 0 }
+.card-media .card-body::after {
+    display: block;
+    height: 16px;
+    content: "";
+    position: relative;
+    z-index: -1;
+}
+.card-media .card-body {
+    -webkit-flex: 1 1 0;
+        -ms-flex: 1 1 0px;
+            flex: 1 1 0;
+    position: relative;
+    line-height: 1.5;
+}
+
+
+.card-media .explanation { padding: 16px 3px 0 20px }
+.card-media .button::after {
+    height: 0px;
+    // margin: 0 10px;
+}
+
+.card-media .card-body + .card-body {
+    -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+    // padding-left: 0;
+    // margin-left: -10px;
+    padding-top: 0;
+}
+
+/* - 詳細テキスト */
+.card-media .card-detail:not(:last-child) { margin-bottom: 12px }
+
+
+/* 調整 */
+.card-media .card-detail p + p { margin-top: .2em }
+
+.btn-get { position: relative }
+.btn-get :global(.fa-spinner) {
+    position: absolute;
+    left: 50%;
+    margin-left: -.5em;
+
+    opacity: 0;
+}
+.btn-get:disabled :global(.fa-spinner) { opacity: 1 }
+.btn-get:disabled .btn-label { opacity: 0 }
+
+
+// ivry
+.exclamation {
+    font-size: 70%;
+}
+
+.telNumber {
+    font-size: 130%;
+    text-decoration: underline;
+}
+
+.btn-spinner > i {
+    margin-top: 10%;
+    font-size: 150%;
+}

@@ -1,0 +1,114 @@
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+<div class="wrapper">
+    <div krt-if="state == 1">
+        <div krt-on:click="onOpenFAQ" class="reception-Skin reception-MinimumWidget">
+            #{widgetName}
+            <div class="reception-CloseButton karte-close">
+                <img src="#{icon_close}">
+            </div>
+        </div>
+    </div>
+    
+    <div krt-if="state == 2">
+        <div class="reception-Skin">
+            <div class="reception-Header reception-Header-question">
+                <div class="reception-Name">#{widgetName}</div>
+                <h2 class="reception-Header_Title">#{faqTitle}</h2>
+                <h3 class="reception-Header_SubTitle">#{faqSubTitle}</h3>
+                <div krt-on:click="setState(1)" class="reception-MinimizeButtonClickable">
+                    <div class="reception-MinimizeButton"></div>
+                </div>
+            </div>
+            <ul class="reception-Question_Container js-question-container">
+                <li class="reception-Question_Item" krt-for="(key, value) in questions" krt-if="value" krt-bind:key="key" krt-on:click="onSelectQuestion($index)">
+                    <div class="reception-Question_Outer">
+                        <p class="reception-Question js-question-item"></p>
+                    </div>
+                </li>
+            </ul>
+            <ul krt-if="useChat">
+                <li class="reception-Question_Item reception-Question_Item-chat" krt-on:click="onSelectChat">
+                    <div class="reception-Question_Outer">
+                        <p class="reception-Question">チャットで質問する</p>
+                    </div>
+                </li>
+            </ul>
+            <ul krt-if="useChat">
+                <li class="reception-Question_Item reception-Question_Item-call" krt-on:click="onSelectCall">
+                    <div class="reception-Question_Outer">
+                        <p class="reception-Question">電話で問い合わせる</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <div krt-if="state == 3">
+        <div class="reception-Skin">
+            <div class="reception-Header reception-Header-answer">
+                <div class="reception-Name">#{widgetName}</div>
+                <h2 class="reception-Header_Title">{{currentQuestion}}</h2>
+                <div krt-on:click="onBackState" class="reception-BackButton">
+                    <img src="#{icon_leftArrow}">
+                </div>
+                <div krt-on:click="setState(1)" class="reception-MinimizeButtonClickable">
+                    <div class="reception-MinimizeButton"></div>
+                </div>
+            </div>
+            <div class="reception-Answer_Container" krt-bind:class="{ 'is-scroll': isScrollable }" krt-bind:style="currentContainerStyle">
+                <div ref="answer-item" class="reception-Answer_Item js-answer-item" krt-bind:style="currentItemStyle">
+                    <div class="reception-Answer_TextOuter js-answer-text-outer">
+                        <p class="reception-Answer" krt-html="currentAnswer">
+                        </p>
+                        <p krt-if="useChat" class="reception-Answer_Notice">#{chatGuidanceText}</p>
+                    </div>
+                </div>
+            </div>
+            <ul krt-if="useChat">
+                <li class="reception-Question_Item reception-Question_Item-chat" krt-on:click="onSelectChat">
+                    <div class="reception-Question_Outer">
+                        <p class="reception-Question">チャットで質問する</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- call tracking -->
+    <div krt-if="state == 4">
+        <div class="reception-Skin">
+            <div class="reception-Header reception-Header-answer">
+                <div class="reception-Name">#{widgetName}</div>
+                <h2 class="reception-Header_Title">電話で問い合わせる</h2>
+                <div krt-on:click="setState(1)" class="reception-BackButton">
+                    <img src="#{icon_leftArrow}">
+                </div>
+                <div krt-on:click="setState(1)" class="reception-MinimizeButtonClickable">
+                    <div class="reception-MinimizeButton"></div>
+                </div>
+            </div>
+            <div class="reception-Answer_Container" krt-bind:class="{ 'is-scroll': isScrollable }" krt-bind:style="currentContainerStyle">
+                <div ref="answer-item" class="reception-Answer_Item js-answer-item-call" krt-bind:style="currentItemStyle">
+                    <div class="reception-Answer_TextOuter js-answer-text-outer">
+                        <div class="reception-Answer_Call">
+                            <p>下記に表示された{{number_of_digits}}桁の{{label}}を音声ガイドに従いご入力ください。</p>
+                            <strong class="telNumber">
+                                お問い合わせ窓口： 
+                                <strong class="telNumber"><a href="tel:{{telNumber}}">{{telNumber}}</a></strong>
+                            </strong>
+                            <strong class="idNumber">
+                                {{label}}<br/>
+                                <em>{{idNumber}}</em>
+                            </strong>
+                        </div>
+                        <p class="reception-Answer_Call-Notice">
+                            <i class="fa fa-exclamation-triangle" aria-label="注意:"></i>
+                            {{label}}の有効期限は5分になります。5分経過している場合は再度こちらの画面を開き直してください。</br>
+                            また、過去電話でお問い合わせ頂いている場合、{{label}}の入力は不要となります。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

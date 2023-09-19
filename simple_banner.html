@@ -1,0 +1,69 @@
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
+
+<div class="wrapper">
+    <section krt-if="state === 1">
+        <div class="card-media">
+
+            <button type="button" class="btn btn-close karte-close">
+                <i class="icon #{style.closeIcon}" aria-label="閉じる"></i>
+            </button>
+
+            <div class="card-body explanation">
+                <p class="card-detail">
+                    #{detail}
+                </p>
+            </div>
+
+            <div class="card-body button">
+
+                <p class="button-block">
+                    <button type="button" class="btn-get btn _size-sm _shadowed"
+                            krt-on:click="showId"
+                            krt-bind:disabled="clicked"
+                        >
+                        <span class="btn-spinner">
+                            #{spinner}
+                        </span>
+                        <span class="btn-label">
+                            #{btnLabel}
+                        </span>
+                    </button>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section krt-show="state === 2">
+        <div class="card-media">
+
+            <button type="button" class="btn btn-close karte-close">
+                <i class="icon #{style.closeIcon}" aria-label="閉じる"></i>
+            </button>
+
+            <div class="card-body">
+                <p class="card-detail">
+                    #{detailClicked}</br>
+                </p>
+                <p class="card-detail">
+                    <strong class="inquiry">お問合せ窓口：
+                        <strong class="telNumber"><a href="tel:{{telNumber}}">{{telNumber}}</a></strong>
+                    </strong>
+                </p>
+                <p class="card-detail">
+                    <strong class="label">
+                        #{label}<br>
+                        <em>{{idNumber}}</em>
+                    </strong>
+                     
+                </p>
+            </div>
+
+            <div class="card-body">
+                <p class="exclamation"><i class="fa fa-exclamation-triangle" aria-label="注意:"></i>
+                        #{label}の有効期限は5分になります。5分経過している場合は再度こちらの画面を開き直してください。
+                        過去お問い合わせ頂いている場合、#{label}の入力は不要となります。
+                 </p>
+            </div>
+        </div>
+    </section>
+</div>
