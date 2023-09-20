@@ -46,9 +46,6 @@ header {
 
 /* simplecss */
 /* ベース */
-figure {
-    margin: 0
-}
 
 .callBunner_Wrapper {
     position: fixed;
@@ -117,7 +114,6 @@ figure {
 .reception-Answer_Item {
     position: relative;
     margin: 24px 0;
-    overflow-y: scroll;
 }
 
 .js-answer-item {
