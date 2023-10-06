@@ -30,11 +30,13 @@ window.onload = function () {
 
 //cssとhtmlを文字列にして新たなバナー用divを作成
 (function () {
-  var cssString =
-    ".callBunner_Wrapper {position: fixed;right: 30px;bottom: 50px;text-align: left;font-size: 12px;line-height: 1.66667;}.callBunner_Wrapper * {box-sizing: border-box;font-size: 100%;line-height: inherit;}.telNumber {font-size: 130%;text-decoration: underline;}.reception-Skin {width: 85.33vw;max-width: 320px;border-radius: 4px;background: #FFF;-webkit-box-shadow: 0px 32px 64px rgba(0, 16, 14, 0.31), 0px 0px 0px rgba(0, 16, 14, 0.03);box-shadow: 0px 32px 64px rgba(0, 16, 14, 0.31), 0px 0px 0px rgba(0, 16, 14, 0.03);}.reception-Skin {display: none;}.reception-Skin.active {display: block;}.reception-Answer_Container {position: relative;box-sizing: border-box;background: rgba(0, 16, 14, 0.03);}.reception-Answer_Container:after {content: '';display: none;z-index: 2;position: absolute;right: 0;bottom: 0;left: 0;width: 100%;height: 60px;background: linear-gradient(0, rgba(255, 255, 255, 0.0001) 0.02%, #FFFFFF 0.03%, #FFFFFF 42%, rgba(255, 255, 255, 0) 99.97%);}:global(.is-scroll).reception-Answer_Container:after {display: block;}.reception-Answer_Item {position: relative;margin: 24px 0;}.js-answer-item {height: 242px;}.reception-Answer_TextOuter {position: relative;min-height: 100%;}.reception-Answer_TextOuter:after {display: block;position: absolute;top: 0;right: 0;bottom: 0;left: 0;}.reception-Answer {position: relative;z-index: 1;min-height: 100%;padding: 0 24px 72px;font-size: 12px;line-height: 1.67;}.reception-Answer a {text-decoration: underline;}.reception-Answer a:hover {text-decoration: none;}.reception-Answer h1 {font-size: 1111px;}.reception-Answer_Notice {position: absolute;bottom: 0;left: 0;padding: 0 24px;font-size: 10px;font-weight: bold;}.reception-Answer_Call-Notice {bottom: 0;left: 0;padding: 10px 24px;color: #{fontColor.sub};font-size: 10px;font-weight: bold;margin-bottom: 10px;}.reception-Answer_Call {padding: 0 24px;}.reception-Answer_Call p {font-size: 12px;padding: 10px 0;}.reception-Answer_Call .telNumber {font-size: 80%;}.reception-Answer_Call .telNumber>a {font-size: 150%;text-decoration: underline;}.reception-Answer_Call .idNumber {display: block;border-radius: 4px;border: solid 1px transparent;padding: 10px 0;width: 100%;background: #f0f1f1;text-align: center;font-size: 80%;margin-top: 10px;}.reception-Answer_Call .idNumber em {font-style: normal;font-weight: inherit;font-size: 130%;font-family: 'Noto Sans', sans-serif;letter-spacing: .1em;}.js-answer-item-call {margin: 0;max-height: 100%;}.callRequest_Banner .reception-Answer_Call{display: flex;align-items: center;}.callRequest_Banner .callRequest_Button{height: 50px;width: 120px;padding: 10px 10px;background-color: #17995B;color: white;border-radius: 4px;border: none;text-align: center;cursor: pointer;font-size: 10px;line-height: 1.2;}.callRequest_Banner .callRequest_Button:active {box-shadow: none;transform: scale(0.98);}";
+  var cssString = ".callBunner_Wrapper {position: fixed; right: 30px; bottom: 50px; text-align: left; font-size: 12px; line-height: 1.66667; font-family: inherit;}.callBunner_Wrapper * {box-sizing: border-box; font-size: 100%; line-height: inherit;}.btn-close {display: none; width: 24px; height: 24px; border: none; position: absolute; z-index: 1; border-radius: 4px; transition: .25s; right: 0; bottom: 100%; padding: 6px 6px; background: #04b06c; color: #fff; font-size: 10px; line-height: 1; opacity: 0;}.btn-close.active {display: block;}.btn-close::before, .btn-close::after {content: ''; position: absolute; top: 50%; left: 50%; width: 1.5px; height: 10px; background: #fff;}.btn-close::before {transform: translate(-50%, -50%) rotate(45deg);}.btn-close::after {transform: translate(-50%, -50%) rotate(-45deg);}.callBunner_Wrapper:hover .btn-close {opacity: 1;}.callBunner_Wrapper .btn-close:hover, .callBunner_Wrapper .btn-close:focus {opacity: .5; transform: rotate(90deg);}.telNumber {font-size: 130%; text-decoration: underline;}.reception-Skin {width: 85.33vw; max-width: 320px; border-radius: 4px; background: #FFF; box-shadow: 0px 32px 64px rgba(0, 16, 14, 0.31), 0px 0px 0px rgba(0, 16, 14, 0.03);}.reception-Skin {display: none;}.reception-Skin.active {display: block;}.reception-Answer_Container {position: relative; box-sizing: border-box; background: rgba(0, 16, 14, 0.03);}.reception-Answer_Container:after {content: ''; display: none; z-index: 2; position: absolute; right: 0; bottom: 0; left: 0; width: 100%; height: 60px; background: linear-gradient(0, rgba(255, 255, 255, 0.0001) 0.02%, #FFFFFF 0.03%, #FFFFFF 42%, rgba(255, 255, 255, 0) 99.97%);}.:global(.is-scroll).reception-Answer_Container:after {display: block;}.reception-Answer_Item {position: relative; margin: 24px 0;}.js-answer-item {height: 242px;}.reception-Answer_TextOuter {position: relative; min-height: 100%;}.reception-Answer_TextOuter:after {display: block; position: absolute; top: 0; right: 0; bottom: 0; left: 0;}.reception-Answer {position: relative; z-index: 1; min-height: 100%; padding: 0 24px 72px; font-size: 12px; line-height: 1.67;}.reception-Answer a {text-decoration: underline;}.reception-Answer a:hover {text-decoration: none;}.reception-Answer h1 {font-size: 1111px;}.reception-Answer_Notice {position: absolute; bottom: 0; left: 0; padding: 0 24px; font-size: 10px; font-weight: bold;}.reception-Answer_Call-Notice {bottom: 0; left: 0; padding: 10px 24px; color: #{fontColor.sub}; font-size: 10px; font-weight: bold; margin-bottom: 10px;}.reception-Answer_Call {padding: 0 24px;}.reception-Answer_Call p {font-size: 12px; padding: 10px 0;}.reception-Answer_Call .telNumber {font-size: 80%;}.reception-Answer_Call .telNumber>a {font-size: 150%; text-decoration: underline;}.reception-Answer_Call .idNumber {display: block; border-radius: 4px; border: solid 1px transparent; padding: 10px 0; width: 100%; background: #f0f1f1; text-align: center; font-size: 80%; margin-top: 10px;}.reception-Answer_Call .idNumber em {font-style: normal; font-weight: inherit; font-size: 160%; font-family: 'Noto Sans', sans-serif; letter-spacing: .1em;}.js-answer-item-call {margin: 0; max-height: 100%;}.callRequest_Banner .reception-Answer_Call {display: flex; align-items: center;}.callRequest_Banner .callRequest_Button {height: 50px; width: 120px; padding: 10px 10px; background-color: #04b06c; color: white; border-radius: 4px; border: none; text-align: center; cursor: pointer; font-size: 10px; line-height: 1.2;}.callRequest_Banner .callRequest_Button:active {box-shadow: none; transform: scale(0.98);}";
+
 
   var htmlString =
     '<div class="callBunner_Wrapper">' +
+    '<button type="button" class="btn btn-close active" onclick=clickBannerCloseButton()>' +
+    "</button>" +
     '<div class="reception-Skin callRequest_Banner active">' +
     '<div class="reception-Answer_Container">' +
     '<div ref="answer-item" class="reception-Answer_Item js-answer-item-call">' +
@@ -53,17 +55,12 @@ window.onload = function () {
     '<div class="reception-Answer_TextOuter js-answer-text-outer">' +
     '<div class="reception-Answer_Call reception-Answer_Call_Response">' +
     "<p>下記に表示された4桁のお客様番号を音声ガイドに従いご入力ください。</p>" +
-    '<strong class="telNumber">' +
-    'お問い合わせ窓口：<a href="tel:050-3198-9423">050-3198-9423</a>' +
-    "</strong>" +
-    '<strong class="idNumber">' +
-    "お客様番号<br />" +
-    '<em class="idNumber_Value"></em>' +
-    "</strong>" +
+    '<strong class="telNumber">お問い合わせ窓口：<a href="tel:050-3198-9423">050-3198-9423</a></strong>' +
+    '<strong class="idNumber">お客様番号<br><em class="idNumber_Value"></em></strong>' +
     "</div>" +
     '<p class="reception-Answer_Call-Notice">' +
     '<i class="fa fa-exclamation-triangle" aria-label="注意:"></i>' +
-    "お客様番号の有効期限は5分になります。5分経過している場合は再度こちらの画面を開き直してください。</br>" +
+    "お客様番号の有効期限は5分になります。5分経過している場合は再度こちらの画面を開き直してください。<br>" +
     "また、過去電話でお問い合わせ頂いている場合、お客様番号の入力は不要となります。" +
     "</p>" +
     "</div>" +
@@ -95,6 +92,15 @@ gtag("get", "G-QY86BV694Z", "client_id", function (field) {
   client_id = field;
 });
 //ここまで（GAの値を取り出す）
+
+function clickBannerCloseButton() {
+    var closeDev = document.querySelector(".btn-close");
+    closeDev.classList.remove("active");
+    var requestDev = document.querySelector(".callRequest_Banner");
+    requestDev.classList.remove("active");
+    var responseDev = document.querySelector(".callResponse_Banner");
+    responseDev.classList.remove("active");
+}
 
 function clickCallRequest() {
   //500エラーの場合3回リトライをする
@@ -129,7 +135,7 @@ function fetchToken(retries) {
     strage_params[key] = value;
   }
   params = Object.assign({}, params, strage_params);
-  //   console.log(params);
+    // console.log(params);
   var query = new URLSearchParams(params);
 
   fetch(path + query)
