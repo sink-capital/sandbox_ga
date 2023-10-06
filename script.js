@@ -111,8 +111,8 @@ function changeBanner() {
 //APIリクエスト処理
 //retrie = 500エラーの場合のリトライ数
 function fetchToken(retries) {
-  var path = "https://ott.stg.ivry.jp/token?";
-  var partner_client_id = "p406116219";
+  var path = "https://ott.stg.ivry.jp/token?"; //TODO: 本番環境のURLに変更
+  var partner_client_id = "p406116219"; //to IVRy様: プロパティIDの設定をお願いします。
   var partner_visitor_id = session_id;
   var partner_user_id = client_id;
 
@@ -151,7 +151,7 @@ function fetchToken(retries) {
     })
     .then(function (json) {
       if (json) {
-        console.log(json);
+        // console.log(json);
         var telNumber =
           json.ivry_phone_number
             .replace("+81", "0")
@@ -167,8 +167,6 @@ function fetchToken(retries) {
           "</a>";
         var idNumberDev = document.querySelector(".idNumber_Value");
         idNumberDev.innerHTML = idNumber;
-        console.log("idNumber:" + idNumber);
-        console.log("telNumber:" + telNumber);
         changeBanner();
       }
     })
