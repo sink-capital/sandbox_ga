@@ -135,7 +135,16 @@ function fetchToken(retries) {
     strage_params[key] = value;
   }
   params = Object.assign({}, params, strage_params);
-    // console.log(params);
+
+  // 現在のページのURLを取得してリクエストに追加
+  var current_url = window.location.href;
+  var current_url = current_url.split("?")[0];
+  console.log(current_url);
+  var current_url_params = {
+    'current_url': current_url
+  }
+  params = Object.assign({}, params, current_url_params);  
+  // console.log(params);
   var query = new URLSearchParams(params);
 
   fetch(path + query)
