@@ -34,9 +34,7 @@ window.onload = function () {
 //ここからバナーを出したい箇所に設置
 //変数定義
 var ivry_api_url = "https://ott.stg.ivry.jp/token?"; //TODO: 本番環境のURLに変更
-var partner_client_id = "p406116219"; //to IVRy様: プロパティIDの設定をお願いします。
 var ga_property_id = "G-QY86BV694Z";
-
 
 //cssとhtmlを文字列にして新たなバナー用divを作成
 (function () {
@@ -127,6 +125,7 @@ function changeBanner() {
 //APIリクエスト処理
 //retrie = 500エラーの場合のリトライ数
 function fetchToken(retries) {
+  var partner_client_id = ga_property_id; //GAプロパティIDをclient_idに
   var partner_visitor_id = session_id;
   var partner_user_id = client_id;
   var params = {
